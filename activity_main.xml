@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="#090909"
+    android:backgroundTint="#79EECDD4"
+    android:foregroundTint="#0A0A0A"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_vista"
+        android:layout_width="335dp"
+        android:layout_height="163dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="30dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.829">
+
+        <com.jjoe64.graphview.GraphView
+            android:id="@+id/graph"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="349dp"
+        android:layout_height="181dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="100dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="236dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <SeekBar
+                android:id="@+id/sb_tiempo"
+                android:layout_width="234dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="12"
+                android:progressTint="#84B8E0"
+                android:thumbTint="#050505"
+                app:tickMarkTint="#FFFFFF" />
+
+            <SeekBar
+                android:id="@+id/sb_velocidad"
+                android:layout_width="233dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="44"
+                android:progressTint="#84B8E0"
+                android:thumbTint="#FFFFFF"
+                app:tickMarkTint="#FFFFFF" />
+
+            <SeekBar
+                android:id="@+id/sb_angulo"
+                android:layout_width="233dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="340"
+                android:progressTint="#84B8E0"
+                android:thumbTint="#FD030303" />
+
+            <SeekBar
+                android:id="@+id/sb_altura"
+                android:layout_width="233dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="40"
+                android:progressTint="#84B8E0"
+                android:thumbTint="#FFFFFF"
+                app:tickMarkTint="#FFFFFF" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_tiempo"
+                android:layout_width="match_parent"
+                android:layout_height="47dp" />
+
+            <TextView
+                android:id="@+id/tv_vo"
+                android:layout_width="match_parent"
+                android:layout_height="45dp" />
+
+            <TextView
+                android:id="@+id/tv_angulo"
+                android:layout_width="match_parent"
+                android:layout_height="42dp" />
+
+            <TextView
+                android:id="@+id/tv_altura"
+                android:layout_width="match_parent"
+                android:layout_height="45dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="292dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btn_generar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#84B8E0"
+            android:onClick="generar"
+            android:text="generar" />
+
+        <Button
+            android:id="@+id/btn_guardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#FF9800"
+            android:text="guardar" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
