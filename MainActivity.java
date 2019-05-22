@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private SeekBar sb1,sb2,sb3,sb4;
     private TextView tv1,tv2,tv3,tv4;
-    double vox, voy, aceleracion, ecuacion, dh, hmax;
+    double vox, voy, aceleracion, ecuacion, dh, hmax, A, B , C;
     LineGraphSeries<DataPoint> series;
 
 
@@ -43,19 +43,8 @@ public class MainActivity extends AppCompatActivity {
         tv4 = (TextView) findViewById(R.id.tv_altura);
         tv4.setText("10 m");
 
-        double x,y;
-        x = 0;
 
 
-        GraphView graph = (GraphView)findViewById(R.id.graph);
-        series = new LineGraphSeries<DataPoint>();
-        for (int i =0; i<20;i++){
-            x = x + 0.1;
-            y = -(Math.pow(x,2)) + 5*x;
-
-            series.appendData(new DataPoint(x, y), true, 500);
-        }
-        graph.addSeries(series);
 
 
         sb1.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
@@ -151,13 +140,37 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void generar(View view){
-        vox();
-        voy();
-        aceleracion();
-        dh();
+        String velocidad = tv2.getText().toString();
+        double resultado1 = Double.parseDouble(velocidad);
+        String  angulo = tv3.getText().toString();
+        double resultado2 = Double.parseDouble(angulo);
+        A = (9.8)/((2*Math.pow(resultado1,2))*(Math.pow(Math.cos(resultado2),2)));
+
+        B = Math.tan(resultado2);
+
+        String  altura = tv4.getText().toString();
+        double resultado3 = Double.parseDouble(altura);
+        C = resultado3;
+
+        double x,y;
+        x = 0;
+        GraphView graph = (GraphView)findViewById(R.id.graph);
+        series = new LineGraphSeries<DataPoint>();
+        for (int i =0; i<20;i++){
+            x = x + 0.3;
+            y = (-A)*(Math.pow(x,2)) + (B * x) + C;
+
+            series.appendData(new DataPoint(x, y), true, 500);
+        }
+        graph.addSeries(series);
+
+
+
+
+
     }
 
-    private void vox() {
+   /* private void vox() {
         String seno = tv3.getText().toString();
         double resultado = Double.parseDouble(seno);
         resultado = Math.cos(resultado);
@@ -197,5 +210,5 @@ public class MainActivity extends AppCompatActivity {
       //  String resu = String.valueOf(resultado);
         //tv1.setText(resu);
    // }
-
+*/
 }
